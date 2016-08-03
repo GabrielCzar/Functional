@@ -7,6 +7,6 @@ maior = lambda L: reduce(lambda x, y: x > y and x or y, L)
 pos_rel = lambda x, L: L[0] == x and 1 or 1 + pos_rel(x, L[1:])
 
 def show(lista):
-        return str(maior(lista)) + ' ' + str(pos_rel(maior(lista), lista)-1)
+        return ( maior(lista), (pos_rel(maior(lista), lista)-1))
 
 print show(map(int, raw_input().split()))

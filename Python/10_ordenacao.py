@@ -7,4 +7,4 @@ def quicksort(lista):
 		return lista
 	return 	quicksort(filter(lambda x, y = lista[0]: x < y, lista)) + filter(lambda x, y = lista[0]: x == y, lista) + quicksort(filter(lambda x, y = lista[0]: x > y, lista)) 
 
-print " ".join(map(str, quicksort(map(int, raw_input().split()))))
+print ' '.join(map(str, quicksort(map(int, raw_input().split()))))

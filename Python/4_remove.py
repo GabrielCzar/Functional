@@ -4,4 +4,4 @@ as ocorrências de p em L."""
 
 remove = lambda L, x: filter(lambda y: y != x, L)
 
-print " ".join(map(str, remove(map(int, raw_input().split()), input())))
+print ' '.join(map(str, remove(map(int, raw_input().split()), input())))
