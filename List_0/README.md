@@ -1,7 +1,7 @@
 # Functional
 _Exercises using functional language_
 
-#####Rules:
+##### Rules:
 Important: it is forbidden the use of repetition statements, variable assignments for future use and auxiliary variables. Your code should be as functional as possible. Furthermore, the use of the if / else statement is released.
 
 1. Make a program that takes a list of integers and prints the product of the numbers.

@@ -2,8 +2,7 @@
 _Exercicios usando linguagem funcional_
 
 
-
-#####Regras(PT-BR):
+##### Regras(PT-BR):
 Importante: é expressamente proibido o uso de
 instruções de repetição, atribuições de variáveis para usos futuros e variáveis auxiliares.
 O seu código deve ser o mais funcional possível. Ademais, o uso da instrução if/else é
