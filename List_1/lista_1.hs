@@ -210,16 +210,24 @@ bubblesort (x:y:rest) =
     bubbled = first : bubblesort (second:rest)
 
 -- 36. compac --------------------------------------------
--- compac lista =
--- ##################
+quantidade x [] = 0
+quantidade x (a:c) | x == a    = 1 + quantidade x c
+                   | otherwise = 0
 
+rem_rec y [] = []
+rem_rec y (x:xs) | y == x    = rem_rec y xs
+                 | otherwise = (x : xs)
 
+compac [] = []
+compac [x] = [[x]]
+compac (x:y:xs) | x == y    = [[quantidade x (x : y : xs), x]] ++ compac (rem_rec x xs)
+                | otherwise = [[x]] ++ compac (y : xs)
 
 -- 37. splitints
 splitints lista = (impares, pares)
                 where
                     impares = [x | x <- lista, (mod x 2 == 1)]
-                    pares = [x | x <- lista, (mod x 2 == 0)]
+                    pares   = [x | x <- lista, (mod x 2 == 0)]
 
 -- 38. perfeito
 perfeito n | pertence n l = True
@@ -238,16 +246,10 @@ base n b | n >= b =  base (div n b) b ++ [hexadecimal (mod n b)]
          | otherwise = show n
 
 -- 40. partes ---------------------------------
--- partes lista =
-
+partes [] = [[]]
+partes (x:xs) = [x : ys | ys <- sub] ++ sub
+              where sub = partes xs
 
 -- implementacao da divisao de inteiros
 divisao_inteiro n m | n < m = 0
-                    | otherwise = 1 + divisao_inteiro (n - m)
-
--- Algoritmo de euclides
-mcd :: Int -> Int -> Int
-mcd a 0 = a
-mcd a n = mcd b (mod a b)
-
---
+                    | otherwise = 1 + divisao_inteiro (n - m) m
