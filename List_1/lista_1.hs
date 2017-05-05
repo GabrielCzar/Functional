@@ -1,4 +1,4 @@
-import Data.Char as S
+import Data.Char
 
 -- 1. menorDeDois
 menorDeDois x y | x < y     = x
@@ -37,14 +37,14 @@ total (h:t) = 1 + total t
 -- 8. maior, sem usar funcao max
 maior [h] = h
 maior (h:m:t) | h > m     = maior (h:t)
-              | otherwise = maior (m:t) 
+              | otherwise = maior (m:t)
 
 maior2 [h] = h
 maior2 (h:t) | h > maior2 t = h
              | otherwise    = maior2 t
 
--- 9. frequencia 
-frequencia n lista = length [x | x <- lista, x == n] 
+-- 9. frequencia
+frequencia n lista = length [x | x <- lista, x == n]
 
 -- 10. unico
 unico n lista = (frequencia n lista) == 1
@@ -71,15 +71,15 @@ unique (h:t) | not (pertence h t) = h : unique t
 
 quicksort [] = []
 quicksort l@(h:t) = quicksort small ++ mid ++ quicksort large
-        where 
+        where
             small = [x | x <- t, x < h]
             mid   = [x | x <- l, x == h]
-            large = [x | x <- t, x > h] 
+            large = [x | x <- t, x > h]
 
 _menores _ [] = []
 _menores 0 _ = []
 _menores n lista = head ordenada : menores (n - 1) (tail ordenada)
-                where 
+                where
                     ordenada = quicksort lista
 menores n lista = [x | x <- lista, pertence x menos]
                 where
@@ -90,7 +90,7 @@ menores n lista = [x | x <- lista, pertence x menos]
 juntar [] [] = []
 juntar l  [] = l
 juntar [] l  = l
-juntar (ph:pt) (nh:nt) = ph : nh : juntar pt nt  
+juntar (ph:pt) (nh:nt) = ph : nh : juntar pt nt
 
 alter 0 = []
 alter n = juntar positivos negativos
@@ -105,10 +105,15 @@ reverso (h:t) = (reverso t) ++ [h]
 -- 19. divide
 divide lista n = splitAt n lista
 
+-- divide2 _ 0 = []
+-- divide2 (x:xs) =
+
 -- 20. intercal
 intercal l1 l2 = juntar l1 l2
 
 -- 21. uniao
+
+
 uniao l1 l2 = l1 ++ [x | x <- l2, notElem x l1]
 
 -- 22. intersec
@@ -120,7 +125,7 @@ sequencia n m = [m, m + 1 .. m + n - 1]
 -- 24. inserir ordenado
 inserir n [] = [n]
 inserir n (h:t) | n < h      = n : h : t
-                | otherwise  = h : inserir n t  
+                | otherwise  = h : inserir n t
 
 -- 25. isSorted
 isSorted [h] = True
@@ -137,22 +142,39 @@ rotEsq n (h:t) = rotEsq (n - 1) (t ++ [h])
 -- 28. rotDir
 rotDir 0 palavra = palavra
 rotDir n palavra = rotDir (n - 1) word
-               where 
+               where
                    rev = reverse palavra
                    rot = (tail rev) ++ [(head rev)]
                    word = reverse rot
 
 -- 29. upper
 upper [] = []
-upper (h:t) = S.toUpper h : upper t
+upper (h:t) = toUpper h : upper t
 
 -- 30. titulo _---------------------------------------------------------------------
 
---__titulo palavra = S.toUpper (head palavra) : map S.toLower (tail palavra)
 
---_titulo palavra = map _titulo (words palavra)
+removercomeco [] = []
+removercomeco (x:xs) | x /= ' '  = removercomeco xs
+                     | otherwise = xs
 
- --titulo palavra = concat ' ' _titulo palavra
+first_part [] = []
+first_part (x:xs) | x /= ' ' = x : first_part xs
+                  | otherwise = []
+
+minusculo lista = map toLower lista
+
+capitalize [] = []
+capitalize palavra = toUpper (head palavra) : tail palavra
+
+_titulo [] = []
+_titulo palavra = (capitalize (first_part palavra)) ++ [' '] ++ _titulo (removercomeco palavra)
+
+__titulo [x] = []
+__titulo (x:xs) = x : __titulo xs
+
+titulo [] = []
+titulo palavra = __titulo (_titulo (minusculo palavra))
 
 -- 31. selec
 selec palavra [] = []
@@ -163,7 +185,7 @@ isPalind palavra | palavra == reverse palavra = True
                  | otherwise                  = False
 
 -- 33. primo
-primo n = [i | i <- [1..n], mod n i == 0] == [1, n] 
+primo n = [i | i <- [1..n], mod n i == 0] == [1, n]
 
 _primo2 a b | b == 1       = True
             | mod a b == 0 = False
@@ -174,7 +196,7 @@ primo2 n = _primo2 n (div n 2)
 -- 34. sdig
 sdig 0 = 0
 sdig n = resto + sdig (div (n - resto) 10)
-       where 
+       where
            resto = (mod n 10)
 
 -- 35. bubblesort -------------------------------------
@@ -188,26 +210,44 @@ bubblesort (x:y:rest) =
     bubbled = first : bubblesort (second:rest)
 
 -- 36. compac --------------------------------------------
--- compac lista = 
+-- compac lista =
+-- ##################
+
+
 
 -- 37. splitints
 splitints lista = (impares, pares)
-                where 
+                where
                     impares = [x | x <- lista, (mod x 2 == 1)]
                     pares = [x | x <- lista, (mod x 2 == 0)]
 
 -- 38. perfeito
 perfeito n | pertence n l = True
            | otherwise    = False
-           where 
+           where
                l = [x * x | x <- [1 .. n]]
-          
+
 -- 39. base, onde n esta na base b --------------------------
---base n b = 
+letras = ['A', 'B' .. 'Z']
+numeros = ['0', '1' .. '9']
+
+hexadecimal num | num < 10  = numeros !! num
+                | otherwise = letras !! (num - 10)
+
+base n b | n >= b =  base (div n b) b ++ [hexadecimal (mod n b)]
+         | otherwise = show n
 
 -- 40. partes ---------------------------------
--- partes lista = 
+-- partes lista =
 
 
+-- implementacao da divisao de inteiros
+divisao_inteiro n m | n < m = 0
+                    | otherwise = 1 + divisao_inteiro (n - m)
 
+-- Algoritmo de euclides
+mcd :: Int -> Int -> Int
+mcd a 0 = a
+mcd a n = mcd b (mod a b)
 
+--
