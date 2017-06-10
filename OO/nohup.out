@@ -1,0 +1,10 @@
+
+** (evince:5801): WARNING **: Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-ANJfsknFXH: Conexão recusada
+
+(evince:5801): Gtk-WARNING **: Failed to get the GNOME session proxy: The name org.gnome.SessionManager is not owned
+
+(evince:5801): Gtk-WARNING **: Failed to get the Xfce session proxy: The name org.xfce.SessionManager is not owned
+
+(evince:5801): Gtk-WARNING **: Failed to get an inhibit portal proxy: The name org.freedesktop.portal.Desktop is not owned
+
+(evince:5801): Gtk-WARNING **: Allocating size to EvSidebar 0x563a6bd49520 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
