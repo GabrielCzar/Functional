@@ -1,0 +1,8 @@
+
+** (evince:5738): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:5738): Gtk-WARNING **: Allocating size to EvSidebar 0x561a5c2a9510 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:5891): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:5891): Gtk-WARNING **: Allocating size to EvSidebar 0x55eaee748520 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?

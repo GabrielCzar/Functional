@@ -1,7 +1,6 @@
 --resolução da lista03
-data Fracao = F Integer Integer
 
- 
+
 -- instance Eq Fracao where
 -- 	(==) (Fracao a b) (Fracao c d) = (a == c) && (b == d)
 
@@ -10,9 +9,10 @@ data Fracao = F Integer Integer
 
 -- instance Show Fracao where
 -- 	show (Fracao a b) = (show a) ++ "/" ++ (show b)
+data Fracao = F Integer Integer
 
 instance Num Fracao where
-	(+) (Fracao a b) (Fracao c d) = Fracao (a * d + c * b) (b + d)
-	(*) (Fracao a b) (Fracao c d) = Fracao (a * c) (b * d)
-	negate (Fracao a b) = Fracao (-a) b
-	abs (Fracao a b) = Fracao (abs a) (abs b)
+  (+) (F a b) (F c d) = F (a * d + c * b) (b + d)
+  (*) (F a b) (F c d) = F (a * c) (b * d)
+  negate (F a b) = F (-a) b
+  abs (F a b) = F (abs a) (abs b)

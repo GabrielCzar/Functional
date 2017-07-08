@@ -1,0 +1,39 @@
+Faça um programa chamado jogodaadivinhacao.sh que recebe dois parâmetros pela linha de comando e realiza as seguintes ações:
+
+1 - Cria um número aleatório entre 0 e o valor numérico do primeiro parâmetro.
+2 - Pede ao usuário para tentar adivinhar, através do terminal, qual o número gerado.
+3 - O usuário terá um número limitado de chances, igual ao valor do segundo parâmetro.
+3 - Se o usuário acertar, imprima "Parabéns!"
+4 - Se o usuário errar, imprima "Errou!"
+
+Por exemplo:
+
+$ ./jogodaadivinhacao 1000 5
+Você tem 5 chances para adivinhar o número.
+Informe um número: 34
+Errou!
+Você tem 4 chances para adivinhar o número.
+Informe um número: 57 
+Errou!
+Você tem 3 chances para adivinhar o número.
+Informe um número: 509
+Errou!
+Você tem 2 chances para adivinhar o número.
+Informe um número: 256
+Errou!
+Você tem 1 chances para adivinhar o número.
+Informe um número: 999
+Errou!
+Não há mais chances!!!
+
+$ ./jogodaadivinhacao 1000 5
+Você tem 5 chances para adivinhar o número.
+Informe um número: 101 
+Errou!
+Você tem 4 chances para adivinhar o número.
+Informe um número: 678 
+Errou!
+Você tem 3 chances para adivinhar o número.
+Informe um número: 309
+Parabéns!
+

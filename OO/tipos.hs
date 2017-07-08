@@ -13,13 +13,13 @@ create_circles a b (c:xs) = (Circle a b c) : create_circles a b xs
 data Person = Person String String Int Float String String
 
 data Person2 = Person2 {
-			   firstName :: String
-                       ,   lastName :: String
-                       ,   age :: Int
-                       ,   height :: Float
-                       ,   number :: String
-                       ,   model :: String
-                       } deriving (Show)
+       firstName :: String
+   ,   lastName :: String
+   ,   age :: Int
+   ,   height :: Float
+   ,   number :: String
+   ,   model :: String
+   } deriving (Show)
 
 
 -- construtor de tipo
